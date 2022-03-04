@@ -20,7 +20,7 @@ include = [
 
 [dependencies]
 egui = "0.16.0"
-miniquad = { version = "=0.3.0-alpha.43" }
+miniquad = { version = "0.3.0-alpha.41", git = "https://github.com/UE2020/miniquad.git" }
 quad-url = "0.1.0"
 
 # https://github.com/not-fl3/miniquad/issues/172
