@@ -77,7 +77,7 @@ impl Painter {
             miniquad::TextureParams {
                 format: miniquad::TextureFormat::RGBA8,
                 wrap: miniquad::TextureWrap::Clamp,
-                filter: miniquad::FilterMode::Linear,
+                filter: miniquad::FilterMode::Nearest,
                 width: font_image.width as _,
                 height: font_image.height as _,
             },
