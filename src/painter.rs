@@ -63,7 +63,7 @@ impl Painter {
         self.egui_texture.delete();
 
         let mut texture_data = Vec::new();
-        let gamma = 1.0;
+        let gamma = 1.0 / 2.2;
         for pixel in font_image.srgba_pixels(gamma) {
             texture_data.push(pixel.r());
             texture_data.push(pixel.g());
