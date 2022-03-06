@@ -256,7 +256,7 @@ mod shader {
 
     void main() {
         vec4 texture_srgba = texture2D(u_sampler, v_tc);
-        vec4 texture_rgba = linear_from_srgba(texture2D(u_sampler, v_tc) * 255.0); // TODO: sRGBA aware sampeler, see linear_from_srgb;
+        vec4 texture_rgba = texture2D(u_sampler, v_tc); // TODO: sRGBA aware sampeler, see linear_from_srgb;
         gl_FragColor = v_rgba * texture_rgba;
 
         // miniquad doesn't support linear blending in the framebuffer.
