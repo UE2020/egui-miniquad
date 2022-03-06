@@ -264,7 +264,7 @@ mod shader {
         gl_FragColor = srgba_from_linear(gl_FragColor) / 255.0; // TODO: sRGBA aware framebuffer
 
         // We also apply this hack to at least get a bit closer to the desired blending:
-        //gl_FragColor.a = pow(gl_FragColor.a, 1.6); // Empiric nonsense
+        gl_FragColor.a = pow(gl_FragColor.a, 1.6); // Empiric nonsense
     }
     "#;
 
