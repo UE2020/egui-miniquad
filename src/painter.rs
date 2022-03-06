@@ -259,12 +259,20 @@ mod shader {
         vec4 texture_rgba = linear_from_srgba(texture2D(u_sampler, v_tc) * 255.0); // TODO: sRGBA aware sampeler, see linear_from_srgb;
         gl_FragColor = v_rgba * texture_rgba;
 
-        // miniquad doesn't support linear blending in the framebuffer.
-        // so we need to convert linear to sRGBA:
-        gl_FragColor = srgba_from_linear(gl_FragColor) / 255.0; // TODO: sRGBA aware framebuffer
+        if (gl_FragColor.a > 0.0) {
+            gl_FragColor.rgb /= gl_FragColor.a;
+        }
 
-        // We also apply this hack to at least get a bit closer to the desired blending:
-        gl_FragColor.a = pow(gl_FragColor.a, 1.6); // Empiric nonsense
+        // Empiric tweak to make e.g. shadows look more like they should:
+        gl_FragColor.a *= sqrt(gl_FragColor.a);
+
+        // To gamma:
+        gl_FragColor = srgba_from_linear(gl_FragColor) / 255.0;
+
+        // Premultiply alpha, this time in gamma space:
+        if (gl_FragColor.a > 0.0) {
+            gl_FragColor.rgb *= gl_FragColor.a;
+        }
     }
     "#;
 
