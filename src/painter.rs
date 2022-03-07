@@ -62,14 +62,11 @@ impl Painter {
     fn rebuild_egui_texture(&mut self, ctx: &mut Context, font_image: &egui::FontImage) {
         self.egui_texture.delete();
 
-        let mut texture_data = Vec::new();
         let gamma = 1.0 / 2.2;
-        for pixel in font_image.srgba_pixels(gamma) {
-            texture_data.push(pixel.r());
-            texture_data.push(pixel.g());
-            texture_data.push(pixel.b());
-            texture_data.push(pixel.a());
-        }
+        let texture_data = font_image
+            .srgba_pixels(gamma)
+            .flat_map(|a| a.to_array())
+            .collect();
         assert_eq!(texture_data.len(), font_image.width * font_image.height * 4);
         self.egui_texture = miniquad::Texture::from_data_and_format(
             ctx,
