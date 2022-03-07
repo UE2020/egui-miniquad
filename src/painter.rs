@@ -294,7 +294,6 @@ mod shader {
 
         v_tc = a_tc;
         v_rgba = linear_from_srgba(a_srgba);
-        v_rgba.a = pow(v_rgba.a, 1.0 / 2.2);
     }
     "#;
 
