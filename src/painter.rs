@@ -293,7 +293,8 @@ mod shader {
             1.0);
 
         v_tc = a_tc;
-        v_rgba = pow(linear_from_srgba(a_srgba), 1.1 / 2.2);
+        v_rgba = linear_from_srgba(a_srgba);
+        v_rgba.a = pow(v_rgba.a, 1.0 / 2.2);
     }
     "#;
 
