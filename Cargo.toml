@@ -21,8 +21,8 @@ include = [
 [dependencies]
 bytemuck = "1.7"
 egui = { version = "0.17.0", features = ["convert_bytemuck"] }
-miniquad = { version = "=0.3.0-alpha.43" }
 quad-url = "0.1.0"
+miniquad = { version = "0.3.0-alpha.41", git = "https://github.com/UE2020/miniquad.git" }
 
 # https://github.com/not-fl3/miniquad/issues/172
 [target.'cfg(target_os = "macos")'.dependencies]
