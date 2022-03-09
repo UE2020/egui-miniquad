@@ -308,6 +308,7 @@ mod shader {
 
         v_tc = a_tc;
         v_rgba = a_srgba / 255.0;
+        v_rgba.a = sqrt(v_rgba.a);
     }
     "#;
 
