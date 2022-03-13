@@ -20,7 +20,7 @@ include = [
 
 [dependencies]
 bytemuck = "1.7"
-egui = { version = "0.17.0", features = ["convert_bytemuck"] }
+egui = { version = "0.17.0", features = ["convert_bytemuck"], git = "https://github.com/UE2020/egui-1.git" }
 quad-url = "0.1.0"
 miniquad = { version = "0.3.0-alpha.41", git = "https://github.com/UE2020/miniquad.git" }
 
