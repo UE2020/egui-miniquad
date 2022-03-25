@@ -307,7 +307,7 @@ mod shader {
             1.0);
 
         v_tc = a_tc;
-        v_rgba = a_srgba / 255.0;
+        v_rgba = a_srgba * 255.0;
         v_rgba.a = pow(v_rgba.a, 1.6);
     }
     "#;
